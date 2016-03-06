@@ -1,0 +1,20 @@
+.nav-bar li {
+	display: inline;
+	padding:25px;
+}
+#companyList{
+	display: none;
+	width: 100%;
+	height: 100;
+
+}
+#createCompany {
+	display: none;
+	width: 200px;
+	height: 100%;
+	background-color: green; 
+
+}
+#createCompany input {
+	margin:20px;
+}

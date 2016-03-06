@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Company creator</title>
+	<link rel="stylesheet" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="footer">
+	<h2>Manager organizational structure for companies </h2>	
+</div>
+	
+
+
+
+<!-- create company -->
+	<div class="">
+		<div class="companyCreator" id="createCompany">
+		
+		<h3>here you can create a new company</h3>
+			<form action="/new" method="POST">
+				<label>Name of company
+					<input class="input" type="text" placeholder="name of company" name="name" >
+				</label>
+				<br/>
+				
+				<label>Estimated Earnings
+					<input class="input" type="text" placeholder="estimated earnings" name="estimated">
+				</label>
+				<br/>
+				<input class="button" type="Submit" value="Save">
+			</form>
+
+			<div class="companyTree">
+		<ul id="companyTree"><h3>Companys Tree</h3>
+			
+		</ul>
+		
+		</div>
+		</div>
+		
+		
+		<div class="companyEditor">
+		
+		
+		
+		
+		
+		<!-- delete form -->
+		<div class="companyChildCreate">
+		<h3>Child company</h3>
+			<form action="/child" method="POST">
+				<label for="companyList">Chose parent company
+				<select class="input" name="companyList" id="selector">
+						<%for (var i in company) { %>
+								<option><%= company[i].name+ " " +"|"+" "+company[i].estimated %></option>
+						<% } %>
+					</select>
+					</label>
+				
+				
+				<input class="input" type="text" placeholder="name of child company" name="childName">
+				<input class="input" type="text" placeholder="estimated earnings" name="childEstimate">
+				<input class="button" type="submit" value="Save">
+			</form>
+		</div>
+		
+		<div class="companyRemove">
+		<h3>Remove company</h3>
+		<form action="/delete" method="get">
+		
+			<label for="companys"> Chose company for deleting
+			<select class="input" name="companys">
+						<%for (var i in company) { %>
+								<option><%= company[i].name %></option>
+						<% } %>
+					</select>
+					</label>
+				<input class="button" type="submit" value="Remove">
+		</form>
+		</div>
+		
+		
+		<!-- edit form -->
+		
+		<div class="companyEdit">
+		<h3>Edit company</h3>
+		<form action="/edit" method="get">
+		
+		<!-- <input type="hidden" name="_method" value="put"> -->
+			<label for="companys"> Chose company for edit
+			<select class="input" name="companys" id="editList">
+						<%for (var i in company) { %>
+								<option><%= company[i].name %></option>
+						<% } %>
+					</select>
+					</label>
+
+
+			<input class="input editName" type="text" name="editName" placeholder="name of company">
+			<input class="input editEstimate" type="text" name="editEstimate" placeholder="estimated earnings">
+				<input class="button" type="submit" value="Edit">
+		</form>
+		</div>
+		
+		
+		<!-- child company create form --> 	
+		
+		
+		
+		
+		
+	</div>
+	</div>
+
+	
+
+
+<script src="jquery-1.12.0.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
